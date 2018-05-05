@@ -1,13 +1,13 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 const io = require("socket.io-client");
 
 class Login extends Component {
   constructor(props) {
     super();
-    let usernamesList = [];
     this.state = {
       usernameReceived: "",
-      usernamesList: usernamesList
+      usernamesList: []
     };
   }
 
@@ -26,7 +26,7 @@ class Login extends Component {
 
   submitUsername(usernameReceived) {
     let newUser = usernameReceived;
-    this.setState({ usernamesList: this.state.usernamesList.push(newUser) });
+    // this.setState({ usernamesList: this.state.usernamesList.push(newUser) });
   }
 
   render() {
@@ -49,7 +49,9 @@ class Login extends Component {
             className="btn btn-primary btn-lg"
             href="#"
             role="button"
-            onClick={event => this.registerHandler(event)}
+    
+            onClick={event => this.registerHandler(event)}>
+            <Link to="/chat" />
           >
             Enter quick discussion
           </a>

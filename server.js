@@ -17,11 +17,8 @@ io.on("connection", socket => {
   socket.on("newUser", data => {
     socket.username = data;
     users.push(data);
+    socket.emit("display name", data);
   });
-  socket.emit('display name', socket.username => {
-  })
-
-
 
   //   client emits 'new message', so this listens..
   socket.on("new message", data => {
